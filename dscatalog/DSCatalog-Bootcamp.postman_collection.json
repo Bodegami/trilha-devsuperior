@@ -14,14 +14,30 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/categories",
-							"protocol": "http",
+							"raw": "{{host}}/categories",
 							"host": [
-								"localhost"
+								"{{host}}"
 							],
-							"port": "8080",
 							"path": [
 								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Category by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/categories/2",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"categories",
+								"2"
 							]
 						}
 					},
