@@ -19,8 +19,6 @@ public class Category implements Serializable {
 	private Long id;
 	private String name;
 
-	//***HIBERNATE ONLY***
-	@Deprecated 
 	public Category() {
 	}
 

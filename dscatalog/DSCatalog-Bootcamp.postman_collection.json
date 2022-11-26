@@ -31,13 +31,39 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/categories/2",
+							"raw": "{{host}}/categories/4",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"categories",
-								"2"
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New category",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Audio\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/categories",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"categories"
 							]
 						}
 					},
