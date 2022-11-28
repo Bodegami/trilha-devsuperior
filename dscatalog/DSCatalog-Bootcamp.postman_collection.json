@@ -9,17 +9,35 @@
 			"name": "Category",
 			"item": [
 				{
-					"name": "All categories",
+					"name": "Categories Paged",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/categories",
+							"raw": "{{host}}/categories?page=1&linesPerPage=5&direction=DESC&orderBy=name",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"categories"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "linesPerPage",
+									"value": "5"
+								},
+								{
+									"key": "direction",
+									"value": "DESC"
+								},
+								{
+									"key": "orderBy",
+									"value": "name"
+								}
 							]
 						}
 					},
@@ -31,13 +49,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/categories/100",
+							"raw": "{{host}}/categories/1",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"categories",
-								"100"
+								"1"
 							]
 						}
 					},
@@ -50,7 +68,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Audio\"\r\n}",
+							"raw": "{\r\n    \"name\": \"Garden\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
