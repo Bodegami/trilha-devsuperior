@@ -178,13 +178,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/products/2",
+							"raw": "{{host}}/products/1",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"products",
-								"2"
+								"1"
 							]
 						}
 					},
@@ -197,7 +197,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Garden\"\r\n}",
+							"raw": "{\r\n  \"date\": \"2020-07-20T10:00:00Z\",\r\n  \"description\": \"The new generation PS5 video game\",\r\n  \"name\": \"PS5\",\r\n  \"imgUrl\": \"XPTO\",\r\n  \"price\": 600.0,\r\n  \"categories\": [\r\n    {\r\n      \"id\": 1\r\n    },\r\n    {\r\n      \"id\": 3\r\n    }\r\n  ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -223,7 +223,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"New name\"\r\n}",
+							"raw": "{\r\n  \"date\": \"2020-07-20T10:00:00Z\",\r\n  \"description\": \"Updated product description\",\r\n  \"name\": \"Updated product name\",\r\n  \"imgUrl\": \"\",\r\n  \"price\": 600.0,\r\n  \"categories\": [\r\n    {\r\n      \"id\": 1\r\n    },\r\n    {\r\n      \"id\": 3\r\n    }\r\n  ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
