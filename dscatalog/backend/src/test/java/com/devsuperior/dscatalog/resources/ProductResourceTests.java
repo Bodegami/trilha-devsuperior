@@ -18,6 +18,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import com.devsuperior.dscatalog.dto.ProductDTO;
 import com.devsuperior.dscatalog.services.ProductService;
+import com.devsuperior.dscatalog.services.exceptions.ResourceNotFoundException;
 import com.devsuperior.dscatalog.tests.Factory;
 
 @WebMvcTest(ProductResource.class)
@@ -29,17 +30,49 @@ public class ProductResourceTests {
 	@MockBean
 	private ProductService service;
 	
+	private long existingId;
+	private long nonExistingId;
 	private ProductDTO productDTO;
 	private PageImpl<ProductDTO> page;
 	
 	@BeforeEach
 	void setup() throws Exception {
+		
+		existingId = 1L;
+		nonExistingId = 1000L;
 		productDTO = Factory.createProductDTO();
 		page = new PageImpl<>(List.of(productDTO));
 		
 		Mockito.when(service.findAllPaged(ArgumentMatchers.any())).thenReturn(page);
 		
+		Mockito.when(service.findById(existingId)).thenReturn(productDTO);
+		Mockito.when(service.findById(nonExistingId)).thenThrow(ResourceNotFoundException.class);
+		
 	}
+	
+	@Test
+	public void findByIdShouldReturnProductWhenIdExists() throws Exception {
+		
+		ResultActions result = 
+				mockMvc.perform(MockMvcRequestBuilders.get("/products/{id}", existingId)
+					.accept(MediaType.APPLICATION_JSON));
+		
+		result.andExpect(MockMvcResultMatchers.status().isOk());
+		result.andExpect(MockMvcResultMatchers.jsonPath("$.id").exists());
+		result.andExpect(MockMvcResultMatchers.jsonPath("$.name").exists());
+		result.andExpect(MockMvcResultMatchers.jsonPath("$.description").exists());
+	}
+	
+	@Test
+	public void findByIdShouldReturnNotFoundWhenIdExists() throws Exception {
+		
+		ResultActions result = 
+				mockMvc.perform(MockMvcRequestBuilders.get("/products/{id}", nonExistingId)
+					.accept(MediaType.APPLICATION_JSON));
+		
+		result.andExpect(MockMvcResultMatchers.status().isNotFound());	
+	}
+	
 	
 	@Test
 	public void findAllShouldReturnPage() throws Exception {
@@ -49,7 +82,6 @@ public class ProductResourceTests {
 					.accept(MediaType.APPLICATION_JSON));
 		
 		result.andExpect(MockMvcResultMatchers.status().isOk());
-		
 	}
 	
 }
