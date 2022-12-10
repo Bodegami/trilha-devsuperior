@@ -67,12 +67,12 @@ public class ProductResourceTests {
 	}
 	
 	@Test
-	public void insertShouldReturnCreatedWhenBodyRequestProductDTO() throws Exception {
+	public void insertShouldReturnProductDTOCreated() throws Exception {
 		
 		String jsonBody = objectMapper.writeValueAsString(productDTO);
 		
 		ResultActions result = 
-				mockMvc.perform(MockMvcRequestBuilders.post("/products/")
+				mockMvc.perform(MockMvcRequestBuilders.post("/products")
 					.content(jsonBody)
 					.contentType(MediaType.APPLICATION_JSON)
 					.accept(MediaType.APPLICATION_JSON));
