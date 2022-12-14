@@ -264,7 +264,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/users?page=1&size=5&sort=price,asc",
+							"raw": "{{host}}/users?page=0&size=5&sort=id,asc",
 							"host": [
 								"{{host}}"
 							],
@@ -274,7 +274,7 @@
 							"query": [
 								{
 									"key": "page",
-									"value": "1"
+									"value": "0"
 								},
 								{
 									"key": "size",
@@ -282,7 +282,7 @@
 								},
 								{
 									"key": "sort",
-									"value": "price,asc"
+									"value": "id,asc"
 								}
 							]
 						}
@@ -295,13 +295,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/users/26",
+							"raw": "{{host}}/users/2",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"users",
-								"26"
+								"2"
 							]
 						}
 					},
@@ -314,7 +314,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"date\": \"2020-07-20T10:00:00Z\",\r\n  \"description\": \"The new generation PS5 video game\",\r\n  \"name\": \"PS5\",\r\n  \"imgUrl\": \"XPTO\",\r\n  \"price\": 600.0,\r\n  \"categories\": [\r\n    {\r\n      \"id\": 1\r\n    },\r\n    {\r\n      \"id\": 3\r\n    }\r\n  ]\r\n}",
+							"raw": "{\r\n    \"firstName\": \"Bob\",\r\n    \"lastName\": \"Brown\",\r\n    \"email\": \"bob@gmail.com\",\r\n    \"password\": \"bob123\",\r\n    \"roles\": [\r\n        {\r\n            \"id\": 1\r\n        },\r\n        {\r\n            \"id\": 2\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -340,7 +340,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"date\": \"2020-07-20T10:00:00Z\",\r\n  \"description\": \"Updated product description\",\r\n  \"name\": \"Updated product name\",\r\n  \"imgUrl\": \"\",\r\n  \"price\": 600.0,\r\n  \"categories\": [\r\n    {\r\n      \"id\": 1\r\n    },\r\n    {\r\n      \"id\": 3\r\n    }\r\n  ]\r\n}",
+							"raw": "{\r\n    \"firstName\": \"Bob\",\r\n    \"lastName\": \"Brown\",\r\n    \"email\": \"bob@gmail.com\",\r\n    \"password\": \"bob123\",\r\n    \"roles\": [\r\n        {\r\n            \"id\": 1\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -348,13 +348,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/users/26",
+							"raw": "{{host}}/users/3",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"users",
-								"26"
+								"3"
 							]
 						}
 					},
@@ -366,13 +366,13 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{host}}/users/26",
+							"raw": "{{host}}/users/3",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"users",
-								"26"
+								"3"
 							]
 						}
 					},
